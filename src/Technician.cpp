@@ -12,4 +12,5 @@ double Technician::getSalary() const {
 
 void Technician::pay() {
     // 实现付薪逻辑（可以扩展）
+    
 }
