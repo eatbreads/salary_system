@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <Person.h>
 #include <Manager.h>
+#include <PersonVec.h>
 #include <SaleManager.h>
 #include <Technician.h>
 class Command {
@@ -19,6 +20,7 @@ private:
     void paySalary();
     void displaySalaryTable();
     void clearSalary();
+    void displaySalaryNeYetPay();
     
 public:
     Command();

@@ -8,7 +8,8 @@ Command::Command() {
     registerCommand("3", [this]() { removeEmployee(); });
     registerCommand("4", [this]() { paySalary(); });
     registerCommand("5", [this]() { displaySalaryTable(); });
-    registerCommand("6", [this]() { clearSalary(); }); // 注册 'quit' 作为退出命令
+    registerCommand("6", [this]() { displaySalaryNeYetPay(); }); // 注册 'display' 作为显示工资统计命令
+    registerCommand("7", [this]() { clearSalary(); }); // 注册 'quit' 作为退出命令
 }
 
 void Command::registerCommand(const std::string& command, const std::function<void()>& func) {
@@ -50,8 +51,12 @@ void Command::showHelp() {
     std::cout << "2. 增加职工" << std::endl;
     std::cout << "3. 删除职工" << std::endl;
     std::cout << "4. 月薪发放" << std::endl;
-    std::cout << "5. 显示工资表" << std::endl;
+    std::cout << "5. 显示全部工资表" << std::endl;
+    std::cout << "6. 显示待处理的工资名单" << std::endl;
+    std::cout << "7. 撤销某人的月薪发放" << std::endl;
     std::cout << "0. 退出系统" << std::endl;
+    std::cout << "-------------------------------------------"<< std::endl;
+    
 }
 
 void Command::enterEmployeeData() {
@@ -118,13 +123,13 @@ void Command::paySalary() {
 }
 
 void Command::displaySalaryTable() {
-    std::cout << "-------------显示工资表--------------\n";
+    std::cout << "-------------显示全部工资表--------------\n";
     m_personVec.display();
 }
 
 void Command::clearSalary()
 {
-    std::cout << "-------------员工的月--------------\n";
+    std::cout << "-------------撤销员工的月薪发放--------------\n";
     std::cout << "请输入要撤销的员工薪资:";
     std::string name;
     std::cin >> name;
@@ -136,3 +141,9 @@ void Command::clearSalary()
     displaySalaryTable();
 }
     
+
+void Command::displaySalaryNeYetPay()
+{
+    std::cout << "-------------显示待处理工资表--------------\n";
+    m_personVec.displayNotPayed();
+}
