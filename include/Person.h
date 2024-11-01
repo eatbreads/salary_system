@@ -30,6 +30,7 @@ public:
     std::string getName() const;
     int getLevel() const;
     void display();
+    void clearSalary();
     static int getCount(); // 获取当前员工数
 };
 

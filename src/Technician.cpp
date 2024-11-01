@@ -11,6 +11,7 @@ double Technician::getSalary() const {
 }
 
 void Technician::pay() {
-    // 实现付薪逻辑（可以扩展）
-    
+    std::cout << "工作时长为:" << monthly_hours << std::endl;
+    std::cout << "Technician " << getName() << " has been paid $" << getSalary()<< std::endl;
+    this->salary = getSalary();
 }

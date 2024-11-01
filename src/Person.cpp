@@ -33,6 +33,10 @@ int Person::getLevel() const {
 int Person::getCount() {
     return count - 1; // 返回当前员工数
 }
+void Person::clearSalary()
+{
+    salary = 0;
+}
  void Person::display()
  {
     std::cout << "Employee ID: " << employee_id << ", Name: " << name << ", Level: " << level 

@@ -18,6 +18,7 @@ private:
     void removeEmployee();
     void paySalary();
     void displaySalaryTable();
+    void clearSalary();
     
 public:
     Command();
