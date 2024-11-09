@@ -7,10 +7,10 @@
 #include <fstream>
 #include <io.h>
 #include <fcntl.h>
+#include <memory>
 int main() {
 
     Command command;
     command.listen(); // 启动命令监听
-    std::cout << "Command" << std::endl;
     return 0;
 }

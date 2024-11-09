@@ -11,6 +11,6 @@ double Saleman::getSalary() const {
 
 void Saleman::pay() {
     // 实现付薪逻辑（可以扩展）
-    std::cout << "Paying " << name << " a salary of $" << getSalary() << std::endl;
+    std::cout << "✅Paying " << name << " a salary of $" << getSalary() << std::endl;
     this->salary = getSalary();
 }

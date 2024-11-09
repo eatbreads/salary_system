@@ -21,9 +21,9 @@ private:
     void displaySalaryTable();
     void clearSalary();
     void displaySalaryNeYetPay();
-    
+    void registerCommand(const std::string& command, const std::function<void()>& func);
 public:
     Command();
-    void registerCommand(const std::string& command, const std::function<void()>& func);
+    
     void listen();
 };

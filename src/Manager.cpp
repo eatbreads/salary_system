@@ -11,7 +11,7 @@ double Manager::getSalary() const {
 
 void Manager::pay() {
     // 实现付薪逻辑（可以扩展）
-    std::cout << "固定薪资为" <<getSalary() << std::endl;
-    std::cout << "Manager " << getName() << " pays " << getSalary() << " per month." << std::endl;
+    std::cout << "💰固定薪资为" <<getSalary() << std::endl;
+    std::cout << "✅Manager " << getName() << " pays " << getSalary() << " per month." << std::endl;
     this->salary = getSalary();
 }

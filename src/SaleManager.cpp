@@ -14,8 +14,8 @@ double SaleManager::getSalary() const {
 
 void SaleManager::pay() {
     // 实现付薪逻辑（可以扩展）
-    std::cout << "固定薪资为" << Manager::getSalary() <<std::endl;
-    std::cout << "销售提成为" << monthly_sales * 0.02 << std::endl;
+    std::cout << "💰固定薪资为" << Manager::getSalary() <<std::endl;
+    std::cout << "🛒销售提成为" << monthly_sales * 0.02 << std::endl;
     this -> salary = getSalary();
-    std::cout << "销售经理的工资为" << salary << std::endl;
+    std::cout << "✅销售经理的工资为" << salary << std::endl;
 }

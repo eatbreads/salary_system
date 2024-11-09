@@ -3,6 +3,8 @@
 #include <SaleManager.h>
 #include <Technician.h>
 #include <PersonVec.h>
+#include <filesystem>
+#include <windows.h>
 std::shared_ptr<Person> getPerson(std::shared_ptr<Person> emp)
 {
     switch (emp->level)
@@ -21,8 +23,20 @@ std::shared_ptr<Person> getPerson(std::shared_ptr<Person> emp)
 }
 
 
-PersonVec::PersonVec(const std::string& filename):m_filename(filename)
+PersonVec::PersonVec(const std::string& filename)
 {
+    char buffer[MAX_PATH];
+    std::filesystem::path m_path;
+    // 使用 GetModuleFileNameA 获取当前可执行文件路径
+    if (GetModuleFileNameA(NULL, buffer, MAX_PATH)) {
+        // 将完整路径转换为 std::filesystem::path，并提取父目录路径
+        m_path =  std::filesystem::path(buffer).parent_path();
+    } else {
+        // 如果失败，返回当前工作目录
+        std::cerr << "Error retrieving executable path" << std::endl;
+        m_path= std::filesystem::current_path();
+    }
+    m_filename = m_path.string()+filename;
     loadFromFile();
 }
 
@@ -79,11 +93,23 @@ void PersonVec::update(std::shared_ptr<Person> emp)
         std::cout << "Employee " << emp->name << " not found." << std::endl;
     }
 }
-void PersonVec::display() const
-{
-    for(const auto & pair:m_persons)
-    {
-        pair.second->display();
+void PersonVec::display() const {
+    // 创建一个 vector 来存储员工指针
+    std::vector<std::shared_ptr<Person>> sortedPersons;
+
+    // 将所有员工放入 vector 中
+    for (const auto& pair : m_persons) {
+        sortedPersons.push_back(pair.second);
+    }
+
+    // 根据员工的职位等级 level 进行排序，职位级别较高的排在前面
+    std::sort(sortedPersons.begin(), sortedPersons.end(), [](const std::shared_ptr<Person>& a, const std::shared_ptr<Person>& b) {
+        return a->getLevel() > b->getLevel(); // 降序排序，级别大的排在前面
+    });
+
+    // 遍历 vector，调用 display() 方法
+    for (const auto& person : sortedPersons) {
+        person->display();
     }
 }
 
@@ -94,7 +120,7 @@ std::shared_ptr<Person> PersonVec::find(const std::string& id)const
     {
         return it->second;
     }
-    std::cout << "没找到员工" <<std::endl;
+    std::cout << "❌没找到员工" <<std::endl;
     return nullptr;
 }
 
@@ -142,7 +168,7 @@ void PersonVec::loadFromFile()
         if(emp->employee_id > Person::count)
         {
             Person::count = emp->employee_id;
-            std::cout << "更新了person::count的值:" <<Person::count<< std::endl;
+            //std::cout << "更新了person::count的值:" <<Person::count<< std::endl;
         }
         m_persons[name] = emp; // 假设员工姓名是唯一的
     }

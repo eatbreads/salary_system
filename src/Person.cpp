@@ -37,9 +37,31 @@ void Person::clearSalary()
 {
     salary = 0;
 }
- void Person::display()
- {
-    std::cout << "Employee ID: " << employee_id << ", Name: " << name << ", Level: " << level 
-              << ", Salary: " << salary << std::endl;
- }
+const std::string reset = "\033[0m";
+const std::string bold = "\033[1m";
+const std::string cyan = "\033[36m";
+const std::string yellow = "\033[33m";
+const std::string green = "\033[32m";
+const std::string magenta = "\033[35m";
+void Person::display() {
+    std::string levelEmoji;
+    if (level == 4) {
+        levelEmoji = "👑 经理";
+    } else if (level == 3) {
+        levelEmoji = "👔 销售经理";
+    } else if (level == 2) {
+        levelEmoji = "💻 技术员";
+    } else if (level == 1) {
+        levelEmoji = "🛒 销售员";
+    } else {
+        levelEmoji = "❓ 未知职位";
+    }
+
+    std::cout << cyan << "📇 员工信息: " 
+              << yellow << "🆔 " << employee_id << reset << ", "
+              << green << "👤 " << name << reset << ", "
+              << magenta << levelEmoji << reset << ", "
+              << cyan << "💰 " << salary << reset << std::endl;
+}
+
 

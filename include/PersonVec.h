@@ -15,7 +15,7 @@ class PersonVec
     void loadFromFile();
     void saveToFile() const;
 public:
-    PersonVec(const std::string& filename="E:/vscodecodecodecoe/CPP/salary_system/person.csv");
+    PersonVec(const std::string& filename="/person.csv");
     //拷贝构造和析构
     PersonVec(const PersonVec& other);
     ~PersonVec();
