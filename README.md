@@ -100,3 +100,7 @@ ps:但是实际上还是不对,因为解引用emp会得到person类,而派生类
 ![image](https://github.com/user-attachments/assets/63e0f376-372c-4d49-a14e-cb35e454cd21)
 
 ![image](https://github.com/user-attachments/assets/39a529eb-01b5-4234-bc71-19054e560dc8)
+
+
+# 总结
+在这次写代码的过程中,我体会到了多态和智能指针的使用,同时学习了如何使用git来进行项目管理,且还尝试了引用外部解析库进行配置,还遇到了关于字符集冲突的问题,了解到了utf8和gbk和acill之间的关系,总之让我受益良多
