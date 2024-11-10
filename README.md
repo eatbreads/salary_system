@@ -6,6 +6,8 @@
 g++  main.cpp src/*.cpp -Iinclude -o main.exe -std=c++17 -lpthread
 .\main.exe
 ```
+# 执行效果如图
+![image](https://github.com/user-attachments/assets/85872524-c63b-40f9-a34d-fead50a79c3d)
 
 # 心得1 关于智能指针和抽象基类的new
 
