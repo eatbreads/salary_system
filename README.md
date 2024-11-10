@@ -1,6 +1,11 @@
 ### 很抱歉啊助教学长,当时说要用单文件的时候我已经做了一半的呜呜呜
 
-### 这边提供了g++编译指令,辛苦学长了呜呜呜
+# 出现中文字符集的问题的话,可以使用cmd(不是powershell)来执行可执行文件,同时把字符集切换成utf8
+```shell
+chcp 65001
+.\main.exe
+```
+### 这边还提供了g++编译指令,如果对应的可执行文件无法执行的话
 
 ```shell
 g++  main.cpp src/*.cpp -Iinclude -o main.exe -std=c++17 -lpthread
