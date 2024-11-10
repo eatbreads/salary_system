@@ -9,6 +9,9 @@ g++  main.cpp src/*.cpp -Iinclude -o main.exe -std=c++17 -lpthread
 # 执行效果如图
 ![image](https://github.com/user-attachments/assets/85872524-c63b-40f9-a34d-fead50a79c3d)
 
+# 项目结构
+![salary_system](https://github.com/user-attachments/assets/f68a6174-bad6-4536-8f6d-8da25fd0b6a6)
+
 # 心得1 关于智能指针和抽象基类的new
 
 一开始写peison的时候,发现personVec(统一管理person)里面应该要存放的是指针,因为要实现多态,但是我发现这样子内存管理会有点困难,因为我习惯于谁申请的谁释放,但是这个地方是外部传进来的
